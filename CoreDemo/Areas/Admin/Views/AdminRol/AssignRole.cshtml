@@ -1,0 +1,24 @@
+﻿@using CoreDemo.Areas.Admin.Models
+@model List<RoleAssingViewModel>
+@{
+    ViewData["Title"] = "AssignRole";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>AssignRole</h1>
+<form method="post" >
+    @for(int i = 0; i < Model.Count; i++)
+    {
+        <div class="form-control">
+            <input type="hidden" asp-for="@Model[i].RoleId"/>
+            <input type="hidden" asp-for="@Model[i].Name"/>
+            <input type="checkbox" asp-for="@Model[i].Exists" class="form-check-input" />
+            <label class="form-check-label" for="@Model[i].Exists">@Model[i].Name</label>
+        </div>
+    }
+    <br/>
+       <button class="btn btn-info">Degisiklikleri Kayet</button>
+</form>
+ <br/>
+  <a href="/Admin/AdminRol/UserRoleList" class="btn btn-primary">Kullanici Rol Listesi</a>
+

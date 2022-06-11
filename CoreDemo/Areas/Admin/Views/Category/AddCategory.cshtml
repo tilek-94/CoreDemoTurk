@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concrete.Category
+@{   
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+<h1>Создание новый категории</h1>
+<br />
+	@using(Html.BeginForm("AddCategory","Category", FormMethod.Post)){
+      @Html.Label("Имя категория")
+     @Html.TextBoxFor(x=>x.CategoryName, new { @class="form-control"})
+	 @Html.ValidationMessageFor(x=>x.CategoryName)
+     
+     <br/>
+     @Html.Label("Контент категория")
+     @Html.TextAreaFor(x=>x.CategoryDescription,10,3, new { @class="form-control"})
+	 @Html.ValidationMessageFor(x=>x.CategoryDescription)
+     <br/>
+    
+     <button class="btn btn-info">Добавить</button>
+
+	}
+    </div>
+    </div>
